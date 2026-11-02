@@ -495,24 +495,24 @@ function createTray() {
     tray.setToolTip('WhatsApp');
 
     const menu = Menu.buildFromTemplate([
-        { label: 'Öffnen', click: () => showWindow() },
+        { label: 'Open', click: () => showWindow() },
         { type: 'separator' },
         {
-            label: 'Beim Schließen ins Tray minimieren',
+            label: 'Minimize to tray when closing',
             type: 'checkbox',
             checked: store.get('minimizeToTray'),
             click: (item) => store.set('minimizeToTray', item.checked),
         },
         {
-            label: 'Beim Start im Tray bleiben',
+            label: 'Start minimized to tray',
             type: 'checkbox',
             checked: store.get('startMinimized'),
             click: (item) => store.set('startMinimized', item.checked),
         },
         { type: 'separator' },
-        { label: 'Neu laden', click: () => loadWhatsApp({ resetBackoff: true }) },
+        { label: 'Reload', click: () => loadWhatsApp({ resetBackoff: true }) },
         { type: 'separator' },
-        { label: 'Beenden', click: () => { isQuitting = true; app.quit(); } },
+        { label: 'Quit', click: () => { isQuitting = true; app.quit(); } },
     ]);
     tray.setContextMenu(menu);
     tray.on('click', () => toggleWindow());
